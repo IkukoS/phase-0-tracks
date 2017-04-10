@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User information</title>
+</head>
+<body>
+	<form action="success.html" method="post">
+		<label>1.Age</label>
+			<p>Which age range are you in?</p>
+				<select name="age range">
+					<option value="20 and younger">20 and younger</option>
+					<option value="21-30">21-30</option>
+					<option value="31-40">31-40</option>
+					<option value="41-50">41-50</option>
+					<option value="51-60">51-60</option>
+					<option value="61 and over">61 and over</option>
+				</select><br>	
+		<label>2.Gender</label>	
+			<p>Please select your gender.</p>		<input type="radio" name="Male">	Male
+				<input type="radio" name="Female">Female<br>
+		<label>3.Favorite things to do</label>
+			<p>What would you like to do on the weekend?</p>
+				<textarea name="comments">enter your comments...</textarea><br>
+		<label>4.Contact time</label>
+			<p>When is the best time to reach you.</p>
+				<input type="checkbox" name="contact_time" value="morning">Morning
+				<input type="checkbox" name="contact_time" value="afternoon">Afternoon
+				<input type="checkbox" name="contact_time" value="evening">Evening<br>
+		<label>5.Phone number</label><br>
+			<p>If you have cell phone, please put cell phone number.</p>
+			<input type="text" name="phone_number">
+			<br>
+ 		<input type="submit" name="submit" value="submit">
+	</form>
+</body>
+</html>
