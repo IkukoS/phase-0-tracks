@@ -1,0 +1,20 @@
+img#octopus{
+	position: absolute;
+	top: 70px;
+	left: 70px;
+	z-index: 0;
+}
+
+img#glasses {
+	position: absolute;
+	top: 170px;
+	left: 110px;
+	z-index: 1;
+}
+
+img#hat {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	z-index: 2;
+}
