@@ -1,0 +1,38 @@
+html{
+	font-family: sans-serif;
+	font-size: 1.2em;
+	background-color: pink;
+}
+nav{
+	width: 20%;
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: top;
+}
+
+section{
+	width: 75%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+ul{
+	list-style-type: square;
+}
+
+h1{
+	letter-spacing: .3em;
+}
+
+h1:hover{color: red}
+
+tr.even {
+	background-color: beige;
+}
+table,td,th{
+    border: solid 1px black;
+    padding: 2px;
+}
+th{
+	text-decoration: underline red;
+}
