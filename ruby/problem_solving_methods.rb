@@ -1,5 +1,4 @@
 #search array
-
 arr = [2, 3, 6, 9, 12]
 
 def search_num(array, number)
@@ -12,7 +11,8 @@ def search_num(array, number)
     new_hash.key(number)
 end
 
-search_num(arr,20)
+p search_num(arr,12)
+
 
 
 
