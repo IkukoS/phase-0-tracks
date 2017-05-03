@@ -1,14 +1,5 @@
 class Puppy
 
-  def fetch(toy)
-    puts "I brought back the #{toy}!"
-    toy
-  end
-
-end
-
-class Puppy
-
 #def method of fetch	
   def fetch(toy)
     puts "I brought back the #{toy}!"
@@ -77,7 +68,7 @@ class Music
 end
 arr = []
 
-#50.times {|name| name = Music.new }
+50.times {|name| name = Music.new }
 
 # arr.each do 
 # 	arr << name 
