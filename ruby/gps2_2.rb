@@ -21,17 +21,10 @@ end
 new_list = creat_list("carrots apples cereal pizza")
 
 
-
-
-
-
 # Method to add an item to a list
 # input: list, item name, and optional quantity
 # steps: take an item and quantity add to hash list
 # output: new hash list
-
-
-
 
 
 def add_item(hash_list, item, quantity)
@@ -78,3 +71,30 @@ def pretty_list(hash_list)
 end
 
 p pretty_list(new_list)
+
+
+# What did you learn about pseudocode from working on this challenge?
+# I was just writeing what I would do in English but it was great idea to make clear 
+# that what is inut and put put so that I will expect how the start and end are like.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# The gegining honestly I was not sure what we were doing but doing same things again and again
+# torwards to end I was more confortable to take the hash as an arguments.
+# I have been wondering how to take hash in the method from last week but I did not get the conclusion.
+# Array is easier to use since it has only one thing as an each item. 
+# Hash has key and value so it was confusing to take in hash what I want but 
+# one I make hash it was easier to passover the method.
+
+# What does a method return?
+# a method always return exactly one single thing.
+# arrays or hashes are also considered as an object. In this case it was hash.
+
+# What kind of things can you pass into methods as arguments?
+# hashs and arrays.
+
+# How can you pass information between methods?
+# No. we made a new name to same hash to different method.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# How to make a hash from the date espacially take in values.  
+# Taking the default first and changing the each values as needed I would never think of by my own.
