@@ -11,9 +11,15 @@
 def creat_list(list)
 	
 	grocery_list = list.split(" ")
-
+    hash_list = {}
+	grocery_list.each do |item|
+		hash_list[item] = 0
+	end
+	hash_list
+	
 end
 p creat_list("arrots apples cereal pizza")
+
 
 
 
