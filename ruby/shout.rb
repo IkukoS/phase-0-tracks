@@ -14,6 +14,8 @@
 # p Shout.yell_happily("I wanted that for long")
 
 
+# use mix in a module
+
 module Shout
  	
 	def yell(words)
