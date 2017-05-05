@@ -22,7 +22,7 @@ client_info = {
 	name: "#{name}",
 	age: age,
 	number_of_children: number_of_children,
-    decor_theme: "#{decor_theme}",
+  decor_theme: "#{decor_theme}",
 }  
 
 # print the information 
@@ -39,13 +39,13 @@ puts "Decor Theme: #{client_info[:decor_theme]}"
 puts "If you would like to correct any information, enter the area name you want to change(name/age/number of the children/decor theme), otherwise enter 'none'"
 
 # if user need a change, ask which informaiton they need to change.
-# ask user how new value
+# ask user the new value
 # with that key overwrite the value
 key_or_none = gets.chomp
 
 if key_or_none == "name"
-	puts "Please enter the right name."
-	client_info[:name] = gets.chomp
+		puts "Please enter the right name."
+		client_info[:name] = gets.chomp
 
 	elsif key_or_none == "age"
 		puts "Please enter your right age."
@@ -56,11 +56,13 @@ if key_or_none == "name"
         client_info[:number_of_children] = gets.chomp
 
 	elsif key_or_none == "decor theme"
-        puts "Please write the desire theme name."	
+        puts "Please write the desire theme."	
         client_info[:decor_theme] = gets.chomp	
-        else
+  else
         key_or_none == "none"
-        end
+end
+        
+# print latest information
 
 puts "Please confirm your information."
 puts "Name: #{client_info[:name]}"
