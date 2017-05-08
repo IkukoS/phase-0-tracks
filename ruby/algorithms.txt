@@ -1,0 +1,37 @@
+Stand in front of the floor button panel.
+Genteelly touch the area.  
+Move your hand to upward till you do not feel the unevenness. 
+Move the hand to left till you do not feel the unevenness.  
+Move the hand to right till you do not feel the unevenness.  
+While you move the hand left to right, count how many buttons are there in the row.
+Remember the number of the button and store the number as A
+Move your hand to downward till you do not feel the unevenness.
+While you move the hand the top to the bottom, count how many buttons are there.
+Remember the number of the button and store the number as B
+Calculate B -1 and store the answer as C. 
+#choose the floor X
+Put the hand on the left button the second row from the bottom.
+Move up your hand (C divided A) buttons to upward.
+Move the hand (the reminder of the previous  calculated) to the right. 
+Push the button.
+
+
+Boil the water.
+Get a pan from the shelf using your left hand.  
+Turn around and move 5 feet forward then turn left.  
+Go straight to the end. Straighten both your hand. 
+Move half feet your left hand to left and half feet downward then move half feet to right. 
+Move half feet  your right hand to upward. When you touch the tap, grab it from the top. 
+Move it the tap to counter clockwise one second and stop.  
+Wait 5 seconds then move the tap to clockwise. 
+ Move the left hand half feet towards left and half feet up wards. 
+Turn around and move till hit oven. 
+Turn right and move 2 feet then turn left. 
+Move your left hand downward till hit something.  
+Then put back your left hand to the home position. 
+Move you right hand down ward till touch a nob. 
+Grab the nob and push it while you are pushing turn the nob to counter clockwise 150 degree.
+Turn the nob to clockwise 50 degree. 
+Put your right hand to your home position. 
+Waite 5minutes then move up you right hand till touch the nob then grab it.
+Turn it 90 degree to clockwise.
