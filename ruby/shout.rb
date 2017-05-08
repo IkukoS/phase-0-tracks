@@ -8,7 +8,7 @@
 # 	def self.yell_happily(words)
 # 		words + "!!! Wow!!!"
 # 	end
-# end
+# endhttps://translate.google.com/
 
 # p Shout.yell_angrily("What are you doing")
 # p Shout.yell_happily("I wanted that for long")
@@ -28,7 +28,7 @@ class Happy
 end
 
 class Angry
-	include Shout
+	include Shouthttps://translate.google.com/
 end
 
 happy = Happy.new
