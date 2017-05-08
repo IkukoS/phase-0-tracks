@@ -87,6 +87,3 @@ age_range = (1..140).to_a
 santa1.age = age_range.sample
 
 p santa1.age 
-
-
-
