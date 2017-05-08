@@ -101,4 +101,4 @@ santa_age = (1..140).to_a
   santas << Santa.new(example_genders.shuffle![i], example_ethnicities.shuffle![i], santa_age.shuffle![i])
 end
 
-p santasS
+p santas
