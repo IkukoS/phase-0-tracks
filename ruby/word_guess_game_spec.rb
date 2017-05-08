@@ -16,7 +16,7 @@
 # Give a congratulatory message to the user/
 # If the after the attempt theletter numbers times and do not get the original word the user lose.
 # Give the user a taunting message.
-require_relative 'Word_guess_game'
+require_relative 'word_guess_game'
 
 describe Word_guessing do 
 	let(:guessing_word) {Word_guessing.new}
@@ -24,49 +24,52 @@ describe Word_guessing do
 	    expect(take_original_word("hello")).to eq "hello"
     end
 
-
 	it "check the original word letter number and store it" do
-		expect(guessing_word.letter_number).to eq original_word.length
-	end
+	 	expect(letter_number("hello")).to eq 5
+    end
 
 	it "take a guessing word" do
+		expect(take_guessing_word("flower")).to eq "flower"
 	end
 
-	it "make the guessing word to letter correciton array" do
+    it "make the guessing word to letter correciton array" do
+		expect(letters_of_guessed("hello")).to eq ["h", "e", "l", "l", "o"]
 	end
 
 	it "check that if the each of the letters of guessing word incluced any orizinal word" do
-	end 
-
-	it "find out the incluced letters index number(s)" do
+	    ecpect(letters_include("lock")).to eq ["l", "l", "o"]
 	end
 
 	it "creaate an array with the numbers of the letter number of the original letters with underscores." do
+	    ecpect(empty_arr(4)). eq "_ _ _ _"
 	end
 
-	it "push the letters which included in original letters to the right place" do
-	end
+	# it "find out the incluced letters index number(s)" do
+	# end
 
-	it "give the user a feeback with the letters already guessed and blank underscore mixed" do
-	end
+	# it "push the letters which included in original letters to the right place" do
+	# end
 
-	it "take another gessing word and repeat untill game is over" do
-    end
+	# it "give the user a feeback with the letters already guessed and blank underscore mixed" do
+	# end
 
-	it "will not count as one, the repeated guess " do
-	end
+	# it "take another gessing word and repeat untill game is over" do
+ #    end
 
-	it "if the word entered is same as the guessing word the game is over" do
-	end
+	# it "will not count as one, the repeated guess " do
+	# end
 
-	it "print a congratulatory message to the user." do
-	end
+	# it "if the word entered is same as the guessing word the game is over" do
+	# end
 
-	it "if user guedded same number of the letter and could not find the wriginal word, game is over." do
-	end
+	# it "print a congratulatory message to the user." do
+	# end
 
-	it "purint a taunting message" do 
-	end
+	# it "if user guedded same number of the letter and could not find the wriginal word, game is over." do
+	# end
+
+	# it "purint a taunting message" do 
+	# end
 
 
 	
