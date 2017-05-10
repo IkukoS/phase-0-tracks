@@ -7,6 +7,8 @@
 #
 #
 require_relative 'state_data'
+# require_relative copy and pasting satte_data 
+# require_relative = same directory, require needs full passway
 
 class VirusPredictor
 
@@ -16,15 +18,44 @@ class VirusPredictor
     @population_density = population_density
   end
 
+  # intialize method intializes instance and takes arguments for instance valiable
+
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
+  # calls two methods predicted_deaths and speed_of_spread
+
   private
+
+def predicted_deaths(population_density, times, population, state)
+    # predicted deaths is solely based on population density
+
+
+    population_density = 200
+    times = 0.4
+    if population_density >= 50
+    until @population_density = 50
+
+     @population_density >= population_density
+      number_of_deaths = (@population * times).floor
+
+      population_density -= 50
+      times -= 0.5
+           
+    else
+      number_of_deaths = (@population * 0.05).floor
+    end
+
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+
+  end
+
 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
+
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -40,6 +71,10 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
+# takes arguments related to instance valuable 
+# greater population density means greater deaths. 
+# print the statement
 
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
@@ -62,6 +97,9 @@ class VirusPredictor
 
   end
 
+  # perform the caluculation, when the pupulation density is larger the spread speed is faster. 
+  # print out the statement.
+
 end
 
 #=======================================================================
@@ -69,18 +107,23 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+STATE_DATA.each do |state, population_info|
+  current_state = VirusPredictor.new(state, population_info[:population_density], population_info[:population])
+  current_state.virus_effects
+end
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
+# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+# alabama.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
+# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+# jersey.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
+# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+# california.virus_effects
+
+# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+# alaska.virus_effects
 
 
 #=======================================================================
