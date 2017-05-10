@@ -81,7 +81,7 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
   santas << Santa.new(example_genders.sample, example_ethnicities.sample)
 end
 
-p santas
+p santa
 
 age_range = (1..140).to_a
 santa1.age = age_range.sample

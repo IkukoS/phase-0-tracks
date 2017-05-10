@@ -1,0 +1,18 @@
+1. Browser is a software to access website. Client is personal use computers. Server is also computer but this is the host for the website. Through the browser client ask some information then server provide the infomation to clinet. But computers use special languages. Those languages are not readable for us. Browser trnaslate the cpmputer language to human language. That browser's work is called rendering. 
+
+2.HTML stands for Hypertext Markup Language. The HTML codes is made up of charactors that live inside angled brackets. Elements are inside tags. Tags expleain to computer what kind of information is inside. Node is like branch. From one point it bacome two. Then that point is node. Also if there is a network with computer-router-sever. Each points are node. 
+Attributes provide additional informaiton of element. Insaide opening tag you can put attributes. Attributes are sets of name and value separated by an equals sign. Name tells what kind of and value tells "waht" lung is name attributes meaning language. en is value which means Englsih.
+Inline elements occupies only the space bounded by the tags define it. On the other hand block element occupies the whole line.
+
+3.head: informatin about the page. You will not see this on the page.
+  body: The part you can see on the page
+  p: paragraph 
+  form: control the form. Tell computer inside form there is a special rules for form
+  div: make a section for styling.
+  span: span is inline element for styling
+  select: select is one of form. You can chose one or more from the list.
+  h2: one of the headings. There are six headings h2 is secound most important heading.
+  ol: oerderd list. You can make a list with numbers which automaticaly applys.
+  ul: unordered list. List with dots. No numbers.
+  table: Table represents information in a grid format
+  tr and td: You indicate the start of each row using opening <tr> tag. These table rows followed by one or more table data<td>
