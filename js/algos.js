@@ -53,3 +53,8 @@ console.log(longest);
 
 longest_word(["long phrase","longest phrase","longer phrase"]);
 
+// Test with different arraies
+
+longest_word(["a", "abc", "abcdefg", "abcdefghijklmn"])
+longest_word(["I feel so good that I finally made it after three hours!!", "Yes!! I did ","I can sleep well tonight."])
+
