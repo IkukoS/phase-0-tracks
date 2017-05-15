@@ -58,3 +58,17 @@ longest_word(["long phrase","longest phrase","longer phrase"]);
 longest_word(["a", "abc", "abcdefg", "abcdefghijklmn"])
 longest_word(["I feel so good that I finally made it after three hours!!", "Yes!! I did ","I can sleep well tonight."])
 
+
+// before make a function make sure the basic logic will work
+
+var data1 = {name: "Steven", age: 54};
+var data2 = {name: "Tamir", age: 54};
+
+if (data1.name === data2.name || data1.age === data2.age){
+  console.log("true");
+}else{
+  console.log("false")
+}
+
+// in repl it I can tell it is true or false however with sublime and terminal, it will not return so I printed out.
+// make this as a function
