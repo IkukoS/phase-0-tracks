@@ -72,3 +72,31 @@ if (data1.name === data2.name || data1.age === data2.age){
 
 // in repl it I can tell it is true or false however with sublime and terminal, it will not return so I printed out.
 // make this as a function
+// how to pass the parameter.....
+
+
+
+// make an array with any desired numbers if items.
+function wordGenerater(num){
+	// create an empty array then make the items with 1,2,3 and so on
+  var arr = [];
+  for(var i =0; i < num ; i++){
+    arr.push(i);
+  }
+  // replace the each items with romdom letters with random length up to 10
+  for(var item =0; item < num ; item++){
+     var ran_word = "";
+     var possible = "abcdefghijklmnopqrstuvwxyz";
+
+    for( var i=0; i < Math.floor(Math.random() * 10) + 1 ; i++ )
+        ran_word += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    arr[item] = ran_word
+  }
+  console.log(arr)
+}
+
+wordGenerater(5);
+console.log(arr)
+
+
