@@ -1,3 +1,8 @@
+
+// create a function which take a word and change the word backwoard.
+var wordReverse = "Java Script"
+// store the new word in a variable and print it.
+
 var str = "Loop over me!";
 
 // make a empty container so that I can store the letters and give a name for that.
@@ -21,6 +26,7 @@ var newWord = "!em revo pooL";
 if (newWord === reverseString) {
 console.log(newWord + " = " + reverseString);
 }
+
 
 
 
