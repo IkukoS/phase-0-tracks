@@ -38,3 +38,10 @@ p "z".ord
 
 p "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
+
+def checking_result(string)
+	puts string.swapcase
+	puts stiring.replace
+end
+
+checking_result("string")
