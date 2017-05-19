@@ -1,16 +1,4 @@
-# clothes = {
-#     main:{
-#         tops:
-#         bottoms:
-
-#     }
-#     accessories:{
-
-#     }
-# }
-
-
-
+# nested date with clothes
 
 clothes = {
     hat: [
@@ -54,9 +42,13 @@ clothes = {
             super_high: '3_inches',
             medium_high: '2_inches',
             low: '1_inch'
-        }
-     ]
+            }
+        ]
+    
 
 }
 
-p clothes
+puts clothes
+puts clothes[:hat]
+puts clothes[:bottoms][1]
+puts clothes[:shoes][:sneakers]
