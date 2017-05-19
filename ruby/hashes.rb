@@ -1,75 +1,87 @@
-# ask the questions and get the information
-puts "What is your name?"
-name = gets.chomp
+#let the designer enter the information of the client then store them.
+#(name, age, number of the children, decor theme and so on)
 
-puts "How old are you?"
-age = gets.chomp
+puts "What is the client first name?"
+first_name = gets.chomp.capitalize
 
-puts "How may children do you have?"
-number_of_children = gets.chomp
+puts "What is the client last name?"
+last_name = gets.chomp.capitalize
 
-puts "What kind of theme would you like to use?"
-decor_theme = gets.chomp
+puts "How old is the cleient?"
+age = gets.chomp.to_i
 
-# convert the inputs to number in case
+puts "How many children does the client have?"
+number_of_children = gets.chomp.to_i
 
-age = age.to_i
-number_of_children = number_of_children.to_i
+puts "What is the theme of the decor?"
+theme_of_decor = gets.chomp
 
-# make hash
+puts "Does the cleient have a budget?(y/n)"
+need_budget = gets.chomp
+
+if need_budget == "y"
+	puts "How much is the budget?"
+	budget = gets.chomp.to_i
+end
+
+# store the information in one place
 
 client_info = {
-	name: "#{name}",
+	first_name: first_name,
+	last_name: last_name,
 	age: age,
-	number_of_children: number_of_children,
-  decor_theme: "#{decor_theme}",
-}  
+	num_children: number_of_children,
+	theme: theme_of_decor,
+	budget: need_budget
+}
 
-# print the information 
+# print all the informations with tags.
 
-puts "Please confirm your information."
-puts "Name: #{client_info[:name]}"
+puts "<<Cleient Information>>"
+puts "Name: #{client_info[:first_name]} #{client_info[:last_name]}"
 puts "Age: #{client_info[:age]}"
-puts "Number of Children: #{client_info[:number_of_children]}"
-puts "Decor Theme: #{client_info[:decor_theme]}"
+puts "Number of the children: #{client_info[:num_children]}"
+puts "Theme: #{client_info[:theme]} "
 
-# ask user if they need to change
-# if user need not any change user should put "none"
-
-puts "If you would like to correct any information, enter the area name you want to change(name/age/number of the children/decor theme), otherwise enter 'none'"
-
-# if user need a change, ask which informaiton they need to change.
-# ask user the new value
-# with that key overwrite the value
-key_or_none = gets.chomp
-
-if key_or_none == "name"
-		puts "Please enter the right name."
-		client_info[:name] = gets.chomp
-
-	elsif key_or_none == "age"
-		puts "Please enter your right age."
-		client_info[:age] = gets.chomp
-
-	elsif key_or_none == "number of the children"
-		puts "Please write the right number of the children"
-        client_info[:number_of_children] = gets.chomp
-
-	elsif key_or_none == "decor theme"
-        puts "Please write the desire theme."	
-        client_info[:decor_theme] = gets.chomp	
-  else
-        key_or_none == "none"
+# if there is a budegt ask the amount.
+if need_budget == "y"
+	puts "Budget: #{budget}"
+else
+	puts "Budget: N/A"
 end
-        
-# print latest information
 
-puts "Please confirm your information."
-puts "Name: #{client_info[:name]}"
-puts "Age: #{client_info[:age]}"
-puts "Number of Children: #{client_info[:number_of_children]}"
-puts "Decor Theme: #{client_info[:decor_theme]}"
-			
+# give the chance to correct the information
+
+puts "Is all the information correct?"
+puts "If the information is correct, please enter 'none'"
+puts "If there is a crrection, please enter the name of the part you want to change."
+correction_part = gets.chomp.downcase
+	if correction_part != "none"
+		puts "Write the correct information."
+		new_value = gets.chomp
+	end
+
+correction_part = correction_part.to_sym
+client_info[correction_part] = new_value
+
+	puts "<<Cleient Information>>"
+	puts "Name: #{client_info[:first_name]} #{client_info[:last_name]}"
+	puts "Age: #{client_info[:age]}"
+	puts "Number of the children: #{client_info[:num_children]}"
+	puts "Theme: #{client_info[:theme]} "	
+
+    	if correction_part != budget
+
+            if need_budget != "y"
 	
+		            puts "Budget: N/A"
 
-		
+	            else
+	                puts "Budget: #{budget}"
+            end
+        else
+         	puts "Budget: #{client_info[:budget]}"
+    end
+
+
+

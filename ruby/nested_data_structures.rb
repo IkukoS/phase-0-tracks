@@ -1,80 +1,54 @@
-schoeller_family = {
-    mark:{
-        gender:"male",
-        age:50,
+# nested date with clothes
 
-        birth_info: {
-            year: 1966,
-            month: "Novemver",
-            date: 26
-           },
-
-        good_at:[
-            "reading",
-            "swiming"
-           ]
-       },
-ikko:{
-        gender:"female",
-        age:45,
-        
-        birth_info:{
-            year:1971,
-            month:"November",
-            date:15
-        },    
-        good_at:["cookig","having fun"]
-        
-    },
+clothes = {
+    hat: [
+        'sun visor', 
+        'baseball cap', 
+        'straw hat'
+    ],
+    tops:[
+         shirts:[
+            'long sleeves',
+            'short sleeves'
+            ], 
+        blouse:[
+            'stripes',
+            'polka dot'
+            ], 
+        jackets:[
+            'blue',
+            'brouwn'
+            ], 
+        coat:[
+            'spring',
+            'rain'
+        ]
+    ],
+    bottoms:[
+        'Pants',
+        'skirt',
+        'shorts'
+    ],
+    shoes:[
+        sneakers:{
+            expenseive: 'running',
+            cheap: 'eveyday_use'
+            },
+        boots:{
+            sunny: 'leather boots',
+            raniy: 'rain boots '
+            },
+        highheels:{ 
+            super_high: '3_inches',
+            medium_high: '2_inches',
+            low: '1_inch'
+            }
+        ]
     
-    anna:{
-        gender:"female",
-        age:10,
-            birth_info:{
-            year:2006,
-            month:"September",
-            date:9
-        },
-        good_at:["viollin",
-                "diy"
-            ]
-    },
-
-    kate:{
-        gender:"female",
-        age:8,
-       
-        birth_info:{
-            year:2008,
-            month:"November",
-            date:4
-        },
-         good_at:[
-            "writing",
-            "being funny"
-        ]
-    },
-
-    sara:{
-        gender:"female",
-        age:6,
-       
-        birth_info:{
-            year:2011,
-            manth:"February",
-            date:2
-        },
-         good_at:[
-            "gymnastics",
-            "being nice"
-        ]
-    },
 
 }
 
-
-p schoeller_family[:mark][:age]
-p schoeller_family[:kate][:good_at][1]
-p schoeller_family[:ikko][:birth_info][:month]
-p schoeller_family[:sara][:good_at][0..1]
-p schoeller_family[:anna][:birth_info]
+puts clothes
+puts clothes[:hat]
+puts clothes[:bottoms][1]
+puts clothes[:shoes][:sneakers]
