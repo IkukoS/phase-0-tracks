@@ -48,7 +48,7 @@ clothes = {
 
 }
 
-puts clothes
-puts clothes[:hat]
-puts clothes[:bottoms][1]
-puts clothes[:shoes][:sneakers]
+# puts clothes
+# puts clothes[:hat]
+# puts clothes[:bottoms][1]
+ p clothes[:shoes][0][:sneakers][:cheap]
