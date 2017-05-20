@@ -44,7 +44,7 @@ puts "Age: #{client_info[:age]}"
 puts "Number of the children: #{client_info[:num_children]}"
 puts "Theme: #{client_info[:theme]} "
 
-# if there is a budegt ask the amount.
+# if there is a budegt, ask the amount.
 if need_budget == "y"
 	puts "Budget: #{budget}"
 else
@@ -54,7 +54,11 @@ end
 # give the chance to correct the information
 
 puts "Is all the information correct?"
+
+# if there is not a correcrion let user enter "none" and skip the process.
 puts "If the information is correct, please enter 'none'"
+
+#if there is a correction ask the area then ask the right information
 puts "If there is a crrection, please enter the name of the part you want to change."
 correction_part = gets.chomp.downcase
 	if correction_part != "none"
@@ -62,6 +66,7 @@ correction_part = gets.chomp.downcase
 		new_value = gets.chomp
 	end
 
+# use the new data and print all the infomation again.
 correction_part = correction_part.to_sym
 client_info[correction_part] = new_value
 
