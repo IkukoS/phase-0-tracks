@@ -32,7 +32,8 @@ client_info = {
 	age: age,
 	num_children: number_of_children,
 	theme: theme_of_decor,
-	budget: need_budget
+	need_budget: need_budget,
+    budget: budget
 }
 
 # print all the informations with tags.
@@ -70,18 +71,12 @@ client_info[correction_part] = new_value
 	puts "Number of the children: #{client_info[:num_children]}"
 	puts "Theme: #{client_info[:theme]} "	
 
-    	if correction_part != budget
+    if need_budget == "y"
+	puts "Budget: #{client_info[:budget]}"
+else
+	puts "Budget: N/A"
+end
 
-            if need_budget != "y"
-	
-		            puts "Budget: N/A"
-
-	            else
-	                puts "Budget: #{budget}"
-            end
-        else
-         	puts "Budget: #{client_info[:budget]}"
-    end
 
 
 
