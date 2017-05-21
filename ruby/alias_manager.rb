@@ -7,20 +7,24 @@ def alias_name(name)
 # switch the items place
  	 reversed_name = array_name.reverse!
 # woking one the first item only. Pidk the first word and make it letters.
-	p last_name = reversed_name[0].split('')
+reversed_name.map! do |downname|
+	  last_name = downname.split('')
+	 
 # if the letter is vowel chenge the word to the next one.
-# make a vowel array 
+# make a vowel array ans a consonants array
  vowels = ["a", "e", "i", "o", "u"] 
  consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z" ]
-  
+# check the letters one by one 
 last_name.map! do |letter|
+#if the letter is vowel, use the vowel array and change the letter the next one.
   if vowels.include?(letter) == true
+# make sure the last letter will goes back to the first letter
     if letter == "u"
         p letter = "a"
       else
         p letter = vowels[vowels.index(letter).to_i + 1] 
     end
-     
+# do same things for consonants    
     else
       consonants.include?(letter) == true
         if letter == "z"
@@ -30,7 +34,6 @@ last_name.map! do |letter|
         end
     end
   end 
-  p last_name
+end
+p reversed_name
 end	 
-
-alias_name("Felicia Torres")
