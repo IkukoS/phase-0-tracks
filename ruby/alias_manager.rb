@@ -34,6 +34,14 @@ last_name.map! do |letter|
         end
     end
   end 
+ end
+# put the letters back to words and make it capitalize 
+ reversed_name.map! do|letters|
+  letters.join.capitalize
 end
-p reversed_name
+# before connect two words, make sure there is a space between last and first name
+reversed_name[0] = "#{reversed_name[0] + " "}"
+p reversed_name.join
 end	 
+
+alias_name("Felicia Torres")
