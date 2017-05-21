@@ -8,37 +8,37 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # ----
 zombie_apocalypse_supplies.map! do |item|
    item + " * "
- end
+   end
  p zombie_apocalypse_supplies.join
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+# def alphabetize
+#   zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+#                               "shotgun", "compass", "CB radio", "batteries"]
 
-loop do
-    changed = false
+#   index = 0
+#     while index < zombie_apocalypse_supplies.length
+#   if zombie_apocalypse_supplies[index] > zombie_apocalypse_supplies[index + 1]
+#        zombie_apocalypse_supplies << zombie_apocalypse_supplies[index]
+#        zombie_apocalypse_supplies.delete[index]
+#        index += 1
+#      end
+#      p zombie_apocalypse_supplies
+#    end
+#  end
 
-    num_do.times do |x|
-      if zombie_apocalypse_supplies[x].downcase > zombie_apocalypse_supplies[x+1].downcase
-        
-        zombie_apocalypse_supplies[x],zombie_apocalypse_supplies[x+1] = zombie_apocalypse_supplies[x+1],zombie_apocalypse_supplies[x]
-        
-        changed = true
-      end
-    end
+#  alphabetize
 
-  break if not changed
-
-end
-
-p zombie_apocalypse_supplies
+       
 
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
 # ----
-def alreacy_have(checking_item)
+def already_have(checking_item)
 
 zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
                               "shotgun", "compass", "CB radio", "batteries"]
@@ -50,8 +50,8 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
   end
 end
 
-  alreacy_have("shotgun")
-  alreacy_have("water")
+  already_have("shotgun")
+  already_have("water")
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -80,29 +80,28 @@ pick_five
 # and their supplies below. You should get rid of any duplicate items.
 # Find the built-in method that helps you accomplish this in the Ruby
 # documentation for Arrays.
-other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
-                            "solar battery", "flashlight"]
-# ----
-def add_items
-  zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
-                              "shotgun", "compass", "CB radio", "batteries"]
-  other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
-                            "solar battery", "flashlight"]
-  index = 0
+# other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
+#                             "solar battery", "flashlight"]
+# # ----
+# def add_items
+#   zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+#                               "shotgun", "compass", "CB radio", "batteries"]
+#   other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
+#                             "solar battery", "flashlight"]
+#   index = 0
   
-  zombie_apocalypse_supplies.each do |item|
-    while index < other_survivor_supplies.length
-      if other_survivor_supplies[index] == item
-        zombie_apocalypse_supplies << other_survivor_supplies[index]
-        
-      end
-      index += 1
-    end
-  end
-    p zombie_apocalypse_supplies
-end
+#   zombie_apocalypse_supplies.each do |item|
+#     while index < other_survivor_supplies.length
+#       if other_survivor_supplies[index] == item
+#         zombie_apocalypse_supplies << other_survivor_supplies[index]
+#         index += 1
+#       end
+#     end
+#   end
+#     p zombie_apocalypse_supplies
+# end
 
-add_items
+# add_items
 
 # Hash Drills
 
@@ -120,9 +119,29 @@ extinct_animals = {
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
 
+pair = []
+
+extinct_animals.each do |animal, year|
+  animal_year = "#{animal} - #{year}"
+  pair << animal_year
+end
+  
+pair.map! do|set|
+  set + " * "
+end
+
+p pair.join
+
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+extinct_animals.each do |animal, year|
+  year >= 2000 
+      extinct_animals.delete(animal)
+    end
+    p extinct_animals
+  end
+
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
