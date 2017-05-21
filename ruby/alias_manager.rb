@@ -20,17 +20,17 @@ last_name.map! do |letter|
   if vowels.include?(letter) == true
 # make sure the last letter will goes back to the first letter
     if letter == "u"
-        p letter = "a"
+       letter = "a"
       else
-        p letter = vowels[vowels.index(letter).to_i + 1] 
+       letter = vowels[vowels.index(letter).to_i + 1] 
     end
 # do same things for consonants    
     else
       consonants.include?(letter) == true
         if letter == "z"
-            p letter = "b"
+           letter = "b"
           else
-            p letter = consonants[consonants.index(letter).to_i + 1]
+           letter = consonants[consonants.index(letter).to_i + 1]
         end
     end
   end 
@@ -40,8 +40,29 @@ last_name.map! do |letter|
   letters.join.capitalize
 end
 # before connect two words, make sure there is a space between last and first name
-reversed_name[0] = "#{reversed_name[0] + " "}"
+reversed_name[0] = " #{reversed_name[0]} + " ""
 p reversed_name.join
 end	 
 
-alias_name("Felicia Torres")
+# alias_name("Felicia Torres")
+
+
+#Provide a user interface
+name_want_change = ""
+while
+  name_want_change != "quit"
+    puts "please enter a name you like. If you do not need a name, enter 'quit'"
+    name_want_change = gets.chomp
+    if name_want_change != "quit"
+      puts "Here is your sercret name!"
+      sercret_name = alias_name(name_want_change)
+    else
+  end
+end
+
+# Use a data structure to store the fake names 
+sercret_names = []
+def store_names(sercret_name)
+sercret_names << sercret_name
+end
+p sercret_names
