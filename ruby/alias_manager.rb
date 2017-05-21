@@ -1,86 +1,39 @@
-puts "Please enter any name you want."
-
-# spy's real name is Felicia Torres 
-# Change the name to a fake one!
-
-# assign the name as a string of two words.
-name = gets.chomp
-
-#before start changing changeable name, Keep the input as original name.
-changeable_name = name
-  while changeable_name != "exit"
-  
-    original_name = changeable_name
-# Swapping the first and last name.
-# make an array of words and give the array name.
-    arr_full_name = changeable_name.split(' ')
-
-# swich the items in the array.
-    arr_full_name[0], arr_full_name[1] = arr_full_name[1], arr_full_name[0]
-
-# make a string 
-    revers_name = arr_full_name.join(' ')
-
-#make all the letter to individual letters.
-    revers_name.chars
-
-# rename so that the name is shoter and easier to understand
-    split_letters = revers_name.chars
-
-#after modiffied the data,store the new data under new name
-
-    new_split_letters = []
-
-# make the vowels and space as exceptions.
-# make ege case an exception : z => b
-# other letters just go to the next letter.
-# make the upper case as exception.
-
-    next_vowel = ["a", "e", "i", "o", "u"]
-
-    split_letters.each do |letter|
-      if letter == "a"
-           new_split_letters << next_vowel[1]
-          elsif letter == "e"
-           new_split_letters << next_vowel[2]
-          elsif letter == "i"
-           new_split_letters << next_vowel[3]
-          elsif letter == "o"
-           new_split_letters << next_vowel[4]
-          elsif letter == "u"
-           new_split_letters << next_vowel[0]
-          elsif letter == " "
-           new_split_letters << " "
-          elsif letter == "z"
-           new_split_letters << "b"
-          elsif letter =="A"         
-           new_split_letters << next_vowel[1].upcase
-          elsif letter == "E"
-           new_split_letters << next_vowel[2].upcase
-          elsif letter == "I"
-           new_split_letters << next_vowel[3].upcase
-          elsif letter == "O"
-           new_split_letters << next_vowel[4].upcase
-          elsif letter == "U"
-           new_split_letters << next_vowel[0].upcase
-          elsif letter == "Z"
-           new_split_letters << "B"
-        else
-       new_split_letters << letter.next
-      end
+# write a method that takes a spy's real name (e.g., "Felicia Torres") and creates a fake name 
+def alias_name(name)
+# make the words to lower case
+     name = name.downcase
+# change the name to an array with two items then swith the items.
+ 	 array_name = name.split(' ')
+# switch the items place
+ 	 reversed_name = array_name.reverse!
+# woking one the first item only. Pidk the first word and make it letters.
+reversed_name.map! do |downname|
+	  last_name = downname.split('')
+	 
+# if the letter is vowel chenge the word to the next one.
+# make a vowel array ans a consonants array
+ vowels = ["a", "e", "i", "o", "u"] 
+ consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z" ]
+# check the letters one by one 
+last_name.map! do |letter|
+#if the letter is vowel, use the vowel array and change the letter the next one.
+  if vowels.include?(letter) == true
+# make sure the last letter will goes back to the first letter
+    if letter == "u"
+        p letter = "a"
+      else
+        p letter = vowels[vowels.index(letter).to_i + 1] 
     end
-
-# make a new string = new name :)
-
-new_name = new_split_letters.join(" ")
-p new_name
-
-# change the name till you find the one you like.
-
-puts "If you do not like this name, please enter a new name, otherwise just type 'exit'."
-changeable_name = gets.chomp
-
+# do same things for consonants    
+    else
+      consonants.include?(letter) == true
+        if letter == "z"
+            p letter = "b"
+          else
+            p letter = consonants[consonants.index(letter).to_i + 1]
+        end
+    end
+  end 
 end
-
-# print the new name and original name for the one you picked. 
-puts "#{new_name} is actually #{original_name}."
+p reversed_name
+end	 
