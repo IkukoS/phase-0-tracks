@@ -104,3 +104,6 @@ p birth_month3
 
 
 #A method that will remove items from a data structure until the condition in the block evaluates to false, then stops (you may not find a perfectly working option for the hash, and that's okay).
+number4 = [12, 25, 31, 55, 47, 28, 9]
+p number4.drop_while {|x| x < 50 }
+
