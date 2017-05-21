@@ -20,20 +20,47 @@ last_name.map! do |letter|
   if vowels.include?(letter) == true
 # make sure the last letter will goes back to the first letter
     if letter == "u"
-        p letter = "a"
+       letter = "a"
       else
-        p letter = vowels[vowels.index(letter).to_i + 1] 
+       letter = vowels[vowels.index(letter).to_i + 1] 
     end
 # do same things for consonants    
     else
       consonants.include?(letter) == true
         if letter == "z"
-            p letter = "b"
+           letter = "b"
           else
-            p letter = consonants[consonants.index(letter).to_i + 1]
+           letter = consonants[consonants.index(letter).to_i + 1]
         end
     end
   end 
+ end
+# put the letters back to words and make it capitalize 
+ reversed_name.map! do|letters|
+  letters.join.capitalize
 end
-p reversed_name
+# before connect two words, make sure there is a space between last and first name
+reversed_name[1] = " #{reversed_name[1]}"
+p reversed_name.join
 end	 
+
+ alias_name("Felicia Torres")
+
+
+#Provide a user interface
+name_want_change = ""
+# store the names user want to change ane the name changed in a hash
+
+new_name = {}
+  loop do
+    puts "Please enter a name you like (or type'quit'):"
+    name_want_change = gets.chomp
+    break if name_want_change == "quit"
+     puts "Here is your sercret name!"
+      sercret_name = alias_name(name_want_change)
+      new_name[name_want_change] = sercret_name
+     end
+# print the original name and new name in the sentence
+  new_name.each do |original, after|
+    puts "#{original} is known as #{after}"
+  end
