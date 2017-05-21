@@ -40,7 +40,7 @@ last_name.map! do |letter|
   letters.join.capitalize
 end
 # before connect two words, make sure there is a space between last and first name
-reversed_name[0] = " #{reversed_name[0]} + " ""
+reversed_name[1] = " #{reversed_name[1]}"
 p reversed_name.join
 end	 
 
@@ -49,20 +49,19 @@ end
 
 #Provide a user interface
 name_want_change = ""
-while
-  name_want_change != "quit"
-    puts "please enter a name you like. If you do not need a name, enter 'quit'"
+# store the names user want to change
+names_to_change = []
+# store the names after change
+new_name = []
+  loop do
+    puts "Please enter a name you like (or type'quit'):"
     name_want_change = gets.chomp
-    if name_want_change != "quit"
-      puts "Here is your sercret name!"
+    break if name_want_change == "quit"
+     puts "Here is your sercret name!"
       sercret_name = alias_name(name_want_change)
-    else
-  end
-end
+      names_to_change << name_want_change
+      new_name << sercret_name
+     end
+  p names_to_change
+  p new_name
 
-# Use a data structure to store the fake names 
-sercret_names = []
-def store_names(sercret_name)
-sercret_names << sercret_name
-end
-p sercret_names
