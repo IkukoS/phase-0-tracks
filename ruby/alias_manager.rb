@@ -13,7 +13,7 @@ def alias_name(name)
  vowels = ["a", "e", "i", "o", "u"] 
  consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z" ]
   
-last_name.each do |letter|
+last_name.map! do |letter|
   if vowels.include?(letter) == true
     if letter == "u"
         p letter = "a"
@@ -30,6 +30,7 @@ last_name.each do |letter|
         end
     end
   end 
+  p last_name
 end	 
 
 alias_name("Felicia Torres")
