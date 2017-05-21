@@ -44,24 +44,23 @@ reversed_name[1] = " #{reversed_name[1]}"
 p reversed_name.join
 end	 
 
-# alias_name("Felicia Torres")
+ alias_name("Felicia Torres")
 
 
 #Provide a user interface
 name_want_change = ""
-# store the names user want to change
-names_to_change = []
-# store the names after change
-new_name = []
+# store the names user want to change ane the name changed in a hash
+
+new_name = {}
   loop do
     puts "Please enter a name you like (or type'quit'):"
     name_want_change = gets.chomp
     break if name_want_change == "quit"
      puts "Here is your sercret name!"
       sercret_name = alias_name(name_want_change)
-      names_to_change << name_want_change
-      new_name << sercret_name
+      new_name[name_want_change] = sercret_name
      end
-  p names_to_change
-  p new_name
-
+# print the original name and new name in the sentence
+  new_name.each do |original, after|
+    puts "#{original} is known as #{after}"
+  end
