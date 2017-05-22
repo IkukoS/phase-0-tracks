@@ -136,18 +136,24 @@ p pair.join
 # the year 2000. Do not use any special built-in methods.
 # ----
 extinct_animals.each do |animal, year|
-  year >= 2000 
-      extinct_animals.delete(animal)
+	
+ if year >= 2000 
+      before_2000 = extinct_animals.delete("animal")
     end
-    p extinct_animals
+  
+p before_2000
+  
   end
-
-
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
 # ----
+
+extinct_animals.map do |animal, year|
+	extinct_animals[animal] = year - 3
+end
+p extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
@@ -157,6 +163,26 @@ extinct_animals.each do |animal, year|
 # Do not use any special built-in methods.
 # ----
 
+def extinct_or(cheking_animal)
+
+extinct_animals = {
+  "Tasmanian Tiger" => 1936,
+  "Eastern Hare Wallaby" => 1890,
+  "Dodo" => 1662,
+  "Pyrenean Ibex" => 2000,
+  "Passenger Pigeon" => 1914,
+  "West African Black Rhinoceros" => 2011,
+  "Laysan Crake" => 1923
+}
+	extinct_animals.each do |animal, years|
+		if "cheking_animal" != animal
+			puts "#{cheking_animal} is extinct"
+		end
+	end
+end
+
+extinct_or("Andean Cat")
+extinct_or("Dodo")
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation
