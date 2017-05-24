@@ -67,3 +67,23 @@ def print_list(list)
 end
 
 print_list(list)
+
+
+# Reflect
+# What did you learn about pseudocode from working on this challenge?
+# Think about input and especialy out put before start witeing code wa really good idea to build a method.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# insead of taking iiems one by one we can just pass the data structure as an argument. That makes the code more readable and DRY.
+
+# What does a method return?
+# Hash
+
+# What kind of things can you pass into methods as arguments?
+# string, integer, array, hash. I believe most of objects or even any objests.  I need to it thoug.
+
+# How can you pass information between methods?
+# as arguments
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# How to pass information, How to refactor the codem How to dry code. Nothing confusing for this challenge at this point.
