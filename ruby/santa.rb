@@ -3,9 +3,9 @@ class Santa
 
 	def initialize(gender, ethnicity)
 		@gender = gender
-	    @ethnicity = ethnicity
-	    @age = 0
-	    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+	  @ethnicity = ethnicity
+	  @age = 0
+	  @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	 	puts "Initializing Santa instance ..."
 	end
     
@@ -38,23 +38,30 @@ class Santa
     @ethnicity
   end
 
+  def santas_info
+   	puts "Gender: #{@gender}"
+	  puts "Ethnicity: #{@ethnicity}"
+	  puts "Age: #{@age}" 
+	  puts "Reindeer Ranking: #{@reindeer_ranking}"
+  end
+
 end
 
 # creat santa1 and cal the methods
- santa1 = Santa.new("fenmale", "Japanese")
-# santa1.speak
-# santa1.eat_milk_and_cookies("snickerdoodle")
+santa1 = Santa.new("fenmale", "Japanese")
+santa1.speak
+santa1.eat_milk_and_cookies("snickerdoodle")
 
- santas = []
- example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
- example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
- example_genders.length.times do |i|
-   santas << Santa.new(example_genders[i], example_ethnicities[i])
- end
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_genders.length.times do |i|
+  santas << Santa.new(example_genders[i], example_ethnicities[i])
+end
 
- p santas
- puts "==============================="
- p santas[0]
+p santas
+puts "==============================="
+p santas[0]
 
 santa1.celebrate_birthday (5)
 #cheking if the age has been changed
@@ -67,14 +74,25 @@ p santa1
 santa1.gender = "secret"
 p santa1
 
+# make 100 santas using exsample arrays
 santas2 = []
 count = 0
-example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
 until count == 100 
   santas2 << Santa.new(example_genders.sample, example_ethnicities.sample)
   count += 1
 end
 
-#   age_range = [1..140]
-# end
+# make an array indluce 1 t0 140 number
+# pick a random number form array for santa age
+  age_range = (1..140).to_a
+p age_range
+santa1.age = age_range.sample
+# checking if santa's age has been changed
+p santa1
+
+# make a method to print 100 santas(santa2) information 
+santas2.each do |santa|
+   santa.santas_info
+end
+
