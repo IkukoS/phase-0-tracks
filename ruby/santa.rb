@@ -73,10 +73,13 @@ count = 0
 until count == 100 
   santas2 << Santa.new(example_genders.sample, example_ethnicities.sample)
   # make an array indluce 1 t0 140 number
-# pick a random number form array for santa age
-  age_range = (1..140).to_a
-p age_range
-santas2.age = age_range.sample
-  count += 1
+  # pick a random number form array for santa age
+  santas2.each do |santa|
+   	age_range = (1..140).to_a
+    santa.age = age_range.sample
+	end
+ 	 	count += 1
 end
 
+# print all santas information	 
+p santas2
