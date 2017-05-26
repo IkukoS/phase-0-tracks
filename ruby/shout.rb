@@ -1,39 +1,37 @@
 # module Shout
-# 	# we'll out some methods here soon, but this code is fine for now!
-# 	def self.yell_angrily(words)
-# 		words + "!!!" + ":("
-# 	end
+#   def self.yell_angrily(words)
+#     words + "!!!" + " :("
+#   end
 
-# 	# creaqte a method yelling happily
-# 	def self.yell_happily(words)
-# 		words + "!!! Wow!!!"
-# 	end
-# endhttps://translate.google.com/
+#   def self.yelling_happily(words)
+#   	words + "!!!" + " :)"
+#   end
+# end
 
-# p Shout.yell_angrily("What are you doing")
-# p Shout.yell_happily("I wanted that for long")
+# p Shout.yell_angrily("Hey"), Shout.yelling_happily("Hey")
 
 
-# use mix in a module
 
 module Shout
- 	
-	def yell(words)
-	 	puts words + "!!!" 
-	end
+  def yell_angrily(words)
+    words + "!!!" + " :("
+  end
+
+  def yelling_happily(words)
+  	words + "!!!" + " :)"
+  end
 end
 
-class Happy
+class Police
 	include Shout
 end
 
-class Angry
-	include Shouthttps://translate.google.com/
+class Graduate
+	include Shout
 end
 
-happy = Happy.new
-happy.yell("I made it")
+police = Police.new
+p police.yell_angrily("Hold up")
 
-
-angry = Angry.new
-angry.yell("Don't touch it")
+graduate = Graduate.new
+p graduate.yelling_happily("We did it")
