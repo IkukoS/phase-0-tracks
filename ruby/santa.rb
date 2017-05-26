@@ -1,5 +1,6 @@
 class Santa
 	attr_accessor :age, :ethnicity
+	attr_writer :gender
 
 	def initialize(gender, ethnicity)
 		@gender = gender
@@ -28,15 +29,6 @@ class Santa
 	  @reindeer_ranking.delete(reindeer)
 	  @reindeer_ranking << reindeer
 	end
-
-	def gender=(new_gender)
-		@gender = new_gender
-		puts "The gender has been chnaged for some reasone to #{@gender}"
-	end
-
-  def ethnicity
-    @ethnicity
-  end
 
   def santas_info
    	puts "Gender: #{@gender}"
@@ -80,19 +72,11 @@ count = 0
 
 until count == 100 
   santas2 << Santa.new(example_genders.sample, example_ethnicities.sample)
-  count += 1
-end
-
-# make an array indluce 1 t0 140 number
+  # make an array indluce 1 t0 140 number
 # pick a random number form array for santa age
   age_range = (1..140).to_a
 p age_range
-santa1.age = age_range.sample
-# checking if santa's age has been changed
-p santa1
-
-# make a method to print 100 santas(santa2) information 
-santas2.each do |santa|
-   santa.santas_info
+santas2.age = age_range.sample
+  count += 1
 end
 
