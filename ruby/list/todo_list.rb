@@ -1,22 +1,21 @@
 class TodoList
-
-	def initialize(array)
-        @array = array
+	def initialize(task_array)
+		@list = task_array
 	end
-    
-    def get_items
-        @array
-    end
 
-    def  add_item(item)
-    	@array << item
-    end
+	def add_item(new_task)
+		@list << new_task
+	end
 
-    def delete_item(item)
-    	@array.delete(item)
-    end
+	def delete_item(completed_task)
+		@list.delete(completed_task)
+	end
 
-    def get_item(number)
-    	@array[number]
-    end
+	def get_item(index_number)
+		@list[index_number]
+	end
+
+	def get_items
+		@list
+	end
 end
