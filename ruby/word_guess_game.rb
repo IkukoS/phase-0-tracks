@@ -15,21 +15,22 @@ class WordGuessGame
 
 	def initialize(original_word)
 		@original_word = original_word
-		puts "Just intialised!!"
+		@guess_count = 0
+		@is_over = false
 	end
 
-	def empty_array(@original_word)
+	def empty_array
 		guess_arr = []
 		word_length = @original_word.length
-		word_length.times {guess_arr << "_" }
+		word_length.times {guess_arr << "_ " }
+		guess_arr.join
 		 
 	end
+end
 
-def empty_array(@original_word)
-	@original_word.length
 
-game = WordGuessGame.new("happy")
-def empty_array
+game = WordGuessGame.new("happy") 
+game.empty_array
 
 
 
