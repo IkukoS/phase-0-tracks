@@ -12,6 +12,7 @@
 # chenge the array with _s with the guessed letter
 
 class WordGuessGame
+  #attr_reader :
 
 	def initialize(original_word)
 		@original_word = original_word
@@ -21,11 +22,10 @@ class WordGuessGame
 		@guess_arr = []
 	end
 
-	def empty_array
-		
+	def empty_array	
 		word_length = @original_word.length
-		word_length.times {guess_arr << "_ " }
-		guess_arr.join	 
+		word_length.times {@guess_arr << "_ " }
+		p @guess_arr.join	 
 	end
 
 	def check_letters(guessed_word)
@@ -37,14 +37,13 @@ class WordGuessGame
 				@guess_arr[letter_index_num] = "#{letter} "
 			end
     end
-
-		p @guess_arr
+		p @feedback = @guess_arr.join
 	end
 end
 
 
 game = WordGuessGame.new("happy") 
-#game.empty_array
+game.empty_array
 game.check_letters("angry")
 
 
@@ -54,3 +53,11 @@ game.check_letters("angry")
 # take guesses from userB until B get the original word or guessed the number of letters of the word
 # if user find out the word before he guessed the number of the leetter of the word print  congratulatory message 
 # if the user could not get the word print taunting message 
+
+# puts "Welcome to the Word Guess Game!"
+# puts "Please enter a word. Do not let your partner to see the word!!"
+# userA_input = gets.chomp
+# game = WordGuessGame.new(userA_input) 
+# puts "Now time to guess. Please enter a word."
+# userB_input = gets.chomp
+# game.check_letters(userB_input)
