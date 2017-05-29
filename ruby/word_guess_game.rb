@@ -16,7 +16,7 @@ class WordGuessGame
 
 	def initialize(original_word)
 		@original_word = original_word
-		@guess_count = 0
+	
 		@is_over = false
 		@original_word_arr = original_word.split''
 		@guess_arr = []
@@ -42,9 +42,9 @@ class WordGuessGame
 end
 
 
-game = WordGuessGame.new("happy") 
-game.empty_array
-game.check_letters("angry")
+# game = WordGuessGame.new("happy") 
+# game.empty_array
+# game.check_letters("angry")
 
 
 
@@ -55,9 +55,11 @@ game.check_letters("angry")
 # if the user could not get the word print taunting message 
 
 # puts "Welcome to the Word Guess Game!"
-# puts "Please enter a word. Do not let your partner to see the word!!"
-# userA_input = gets.chomp
-# game = WordGuessGame.new(userA_input) 
-# puts "Now time to guess. Please enter a word."
-# userB_input = gets.chomp
-# game.check_letters(userB_input)
+puts "Please enter a word. Do not let your partner to see the word!!"
+userA_input = gets.chomp
+game = WordGuessGame.new(userA_input) 
+puts "Now time to guess. Please enter a word. Here is a clue for you!"
+game.empty_array
+userB_input = gets.chomp
+puts "This is what you got so far."
+game.check_letters(userB_input)
