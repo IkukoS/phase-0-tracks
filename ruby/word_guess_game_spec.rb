@@ -13,7 +13,7 @@ describe WordGuessGame do
 
 	it "store the guesses" do
 		game.check_letters("angry")
-		expect(game.tried_arr).to eq ["angry"]
+		expect(game.tried_arr_store).to eq ["angry"]
 	end
 
 end 
