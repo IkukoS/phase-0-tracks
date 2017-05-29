@@ -13,7 +13,7 @@
 # store the userB input so that be able to check the new guess word has been already used
 
 class WordGuessGame
-	attr_accessor :guessed_word, :tried_arr, :guess_arr
+	attr_accessor :guessed_word, :tried_arr, :guess_arr 
   #attr_reader :tried_arr
 
 	def initialize(original_word)
@@ -73,27 +73,34 @@ game = WordGuessGame.new(userA_input)
 # take inputs from userB
 puts "Now time to guess. Please enter a word. Here is a clue for you!"
 game.empty_array
-try_count = 0
+try_count = 1
 userB_input = ""
 
-	while try_count < userA_input.length
+until try_count > userA_input.length || userA_input == userB_input
 	userB_input = gets.chomp.downcase
   game.guessed_word = userB_input
-  
- 
   duplicate_check = game.tried_arr
 
- 
-
-  	if duplicate_check.include?(userB_input) == true 
-  		puts "You already entered that word. Please enter another word."
+   	if duplicate_check.include?(userB_input) == true 
+  		puts "You already entered '#{userB_input}'. Please enter another word."
   	end
- puts "This is what you got so far. Please enter another word."
-    game.check_letters(userB_input)
+
+
+	if userA_input == userB_input
+ 		puts "You won! The word you were looking for is '#{userA_input}' "
+  
+  else			
+  puts "This is what you got so far. Please enter another word."
+  game.check_letters(userB_input)
 	game.tried_arr_store
 	try_count += 1
-	#end 
+	end
 end
+
+if userA_input.length == try_count -1
+  puts "You lost! You tried too many. The word you were looking for is '#{userA_input}'" 
+end
+
 
 
 
