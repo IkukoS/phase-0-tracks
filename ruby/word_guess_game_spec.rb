@@ -6,4 +6,4 @@ describe WordGuessGame do
 	it "take a word and check the numbers of the letters" do
 		expect(game.empty_array).to eq "_ _ _ _ _ "
 	end
-end
+endruby 
