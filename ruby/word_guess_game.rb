@@ -17,20 +17,35 @@ class WordGuessGame
 		@original_word = original_word
 		@guess_count = 0
 		@is_over = false
+		@original_word_arr = original_word.split''
+		@guess_arr = []
 	end
 
 	def empty_array
-		guess_arr = []
+		
 		word_length = @original_word.length
 		word_length.times {guess_arr << "_ " }
-		guess_arr.join
-		 
+		guess_arr.join	 
+	end
+
+	def check_letters(guessed_word)
+		guessed_letter_arr = guessed_word.split''
+		guessed_letter_arr.each do |letter|
+		included_letter = @original_word.include?(letter)
+			if @original_word.include?(letter) == true
+				letter_index_num = @original_word_arr.index(letter)
+				@guess_arr[letter_index_num] = "#{letter} "
+			end
+    end
+
+		p @guess_arr
 	end
 end
 
 
 game = WordGuessGame.new("happy") 
-game.empty_array
+#game.empty_array
+game.check_letters("angry")
 
 
 
