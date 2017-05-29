@@ -16,7 +16,7 @@ class WordGuessGame
 
 	def initialize(original_word)
 		@original_word = original_word
-	
+
 		@is_over = false
 		@original_word_arr = original_word.split''
 		@guess_arr = []
@@ -29,6 +29,7 @@ class WordGuessGame
 	end
 
 	def check_letters(guessed_word)
+		@guessed_word = guessed_word
 		guessed_letter_arr = guessed_word.split''
 		guessed_letter_arr.each do |letter|
 		included_letter = @original_word.include?(letter)
@@ -37,14 +38,22 @@ class WordGuessGame
 				@guess_arr[letter_index_num] = "#{letter} "
 			end
     end
-		p @feedback = @guess_arr.join
+		p feedback = @guess_arr.join
 	end
+
+	def tried_arr
+    tried_arr = []
+    tried_arr << @guessed_word
+    p tried_arr
+  end
+
 end
 
 
-# game = WordGuessGame.new("happy") 
+#game = WordGuessGame.new("happy") 
 # game.empty_array
-# game.check_letters("angry")
+#game.check_letters("angry")
+#game.tried_arr
 
 
 
@@ -60,6 +69,15 @@ userA_input = gets.chomp
 game = WordGuessGame.new(userA_input) 
 puts "Now time to guess. Please enter a word. Here is a clue for you!"
 game.empty_array
+try_count = 1
+while try_count < userA_input.length
 userB_input = gets.chomp
-puts "This is what you got so far."
+puts "This is what you got so far. Please enter another word."
 game.check_letters(userB_input)
+game.tried_arr
+try_count += 1
+end 
+
+
+
+	
