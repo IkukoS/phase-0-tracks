@@ -14,22 +14,14 @@ zombie_apocalypse_supplies.map! do |item|
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
-# def alphabetize
+#
 #   zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 #                               "shotgun", "compass", "CB radio", "batteries"]
-
-#   index = 0
-#     while index < zombie_apocalypse_supplies.length
-#   if zombie_apocalypse_supplies[index] > zombie_apocalypse_supplies[index + 1]
-#        zombie_apocalypse_supplies << zombie_apocalypse_supplies[index]
-#        zombie_apocalypse_supplies.delete[index]
-#        index += 1
-#      end
-#      p zombie_apocalypse_supplies
-#    end
-#  end
-
-#  alphabetize
+intial = {}
+zombie_apocalypse_supplies.each do |item|
+  intial[item.chr] = item
+end
+p intial
 
        
 
