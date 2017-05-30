@@ -1,4 +1,4 @@
-# game alass
+# game calss
 
 # make a class
 # take a original wrod as an argument
@@ -51,10 +51,10 @@ class WordGuessGame
 end
 
 
-#game = WordGuessGame.new("happy") 
-# game.empty_array
-#game.check_letters("angry")
-#game.tried_arr
+game = WordGuessGame.new("happy") 
+game.empty_array
+game.check_letters("angry")
+game.tried_arr_store
 
 
 
@@ -100,3 +100,5 @@ end
 if userA_input.length == try_count -1
   puts "You lost! You tried too many. The word you were looking for is '#{userA_input}'" 
 end
+
+# When original word included duplicated letters it does not work.
