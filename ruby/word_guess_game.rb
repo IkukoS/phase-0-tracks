@@ -100,8 +100,3 @@ end
 if userA_input.length == try_count -1
   puts "You lost! You tried too many. The word you were looking for is '#{userA_input}'" 
 end
-
-
-
-
-	
