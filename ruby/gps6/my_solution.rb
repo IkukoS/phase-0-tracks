@@ -47,7 +47,7 @@ attr_reader :virus_effects
       number_of_deaths = (@population * 0.2).floor
     elsif @population_density >= 50
       number_of_deaths = (@population * 0.1).floor
-    else
+    elsegit 
       number_of_deaths = (@population * 0.05).floor
     end
 
