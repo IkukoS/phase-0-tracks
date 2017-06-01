@@ -1,33 +1,17 @@
+// take a word and make it a backwards
+// make a word one by one and print it from the last letter and make it one word again
 
-// create a function which take a word and change the word backwoard.
-var wordReverse = "Java Script"
-// store the new word in a variable and print it.
-
+// store the result and print it only if the newword is same as the word manualy wrote one.
 var str = "Loop over me!";
+	reverseWord = ""
 
-// make a empty container so that I can store the letters and give a name for that.
-var reverseString = '';
-
-// Go through the letters from the back and put the letters into the cintainer I made
-// Start from the last letters means I need to know how many letters in the word 
-// Then start from the number of the letter in the word. 
-// Just put the letter in the container.
-// Check the next last letter and put it in the contaner.
-// Keep doing the same things untill the furst letter.
-for (var i = str.length - 1; i >=0 ; i--) {
-  reverseString += str[i];
+for (var i = str.length - 1; i >= 0 ; i--) {
+	reverseWord +=str[i];
 }
 
-//Print the new word
-	console.log(reverseString);
+// console.log(reverseWord);
 
-var newWord = "!em revo pooL";
-
-if (newWord === reverseString) {
-console.log(newWord + " = " + reverseString);
+if (reverseWord === "!em revo pooL"){
+  console.log(reverseWord);
 }
-
-
-
-
 
