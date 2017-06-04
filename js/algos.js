@@ -9,3 +9,13 @@ compare the length and pick a longest one
 print the one till last
 
 added commetns */
+
+var array = ["long phrase","longest phrase","longer phrase"];
+//console.log(array);
+var match_length = {};
+
+for (var i = 0; i < array.length; i++) {
+	match_length[array[i]] = array[i].length;
+}
+
+console.log(match_length)
