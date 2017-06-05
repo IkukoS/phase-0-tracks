@@ -1,5 +1,3 @@
-
-
 function longestWordFinder(array) {
 
 	var longestWord = array[0];
@@ -9,27 +7,46 @@ function longestWordFinder(array) {
 				  longestWord = array[i];
 			}
 	}
-console.log(longestWord)  
-
+console.log(longestWord); 
 }
 
-longestWordFinder(["long phrase","longest phrase","longer phrase"])
-longestWordFinder(["Happy birthday!","Nice to meet you!","Today is Sunday."])
+longestWordFinder(["long phrase","longest phrase","longer phrase"]);
+longestWordFinder(["Happy birthday!","Nice to meet you!","Today is Sunday."]);
 
+/*Relese 0
+the longest word or phrase in the array. 
 
+set the first word as a longest word
+compare the word to other words one by one.
+if the other word is longer than the fist word assign the word as longest word.
+at the end print the longest word. 
 
+*/
 
+/*
+Relese 1
+write a function that takes two objects and checks to see 
+if the objects share at least one key-value pair.
+
+Take two objecs 
+find out the keys words so that I can access to the values
+check if the sames keys value is same or not
+if they are same store ture to an array.
+if they are not same store false in the same array
+after checked all the keys check that if the array includes ture.
+if it includes true print true otherise orint false
+*/
 function keyValueMatch(data1, data2) {
-	var keys = []
+	var keys = [];
 	  for (var key in data1) {
 	      keys.push(key);
 	  }
-	tfArray = []
+	tfArray = [];
 		for (var i = 0; i < keys.length; i++) {
 			if (data1[keys[i]] === data2[keys[i]] ) {
-				tfArray.push(true)
+				tfArray.push(true);
 			}else{
-				tfArray.push(false)
+				tfArray.push(false);
 			}
 		}
 
@@ -47,9 +64,18 @@ keyValueMatch({name: "Steven", age: 54, gender: "male"}, {name: "Tamir", age: 54
 keyValueMatch({name: "Steven", age: 54, gender: "male"}, {name: "Tamir", age: 29, gender: "female"});
 
 
+/*
+Relese 2
+Write a function that takes an integer for length,
+and builds and returns an array of strings of the given length
+make an array so that I can store the letters I generate
+How to make a rondom word => pick a rondomnumber one to 10
+console.log(Math.ceil(Math.random()*10))
+pick a romdon letter from alphabet array then store it an array romdom times.
+make the letters array in to a string and store the word to an array
 
 
-
+*/
 
 function wordGenerater(num) {
   var array = [];
@@ -63,24 +89,9 @@ function wordGenerater(num) {
 		  	letterArray.push(letters[Math.floor(Math.random()*letters.length)]);
 		  	word = letterArray.join("");
 		    }
-
   array.push(word);
-  
   }
-
  console.log(array);
-
 }
 
 wordGenerater(4);
-
-
-
-
-
-
-
-
-
-
-
