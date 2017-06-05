@@ -1,127 +1,97 @@
-/* Find out the longest word or phrase in the array.
-// count how many letters in each word
-// pick the longest word or phrase then print it.
+function longestWordFinder(array) {
 
-// pick an item from the array
-var array = ["long phrase","longest phrase","longer phrase"]
-// print the wrod or phrase
-// This test worked fine .......  console.log(array[0]);
+	var longestWord = array[0];
 
-// Check howlong the first item is.
-// This test worked fine .......  console.log(array[0].length);
-
-// Do samethings for the next item and if the length is larger than the last one print the word instaed .
-// If the first item is longer than that judt keep printing same one.
-
-// use loop for checking the lenght of the phrase or word
-// first, print all the element length
-
-// How to find difine which is the longest in the array and print as a result??
-// deifine the items length as a valiable so that I can compare the next one.
-// also define the longest item so that I can call it later.
-var item_length = 0;
-var longest;
-
-for(var i=0; i < array.length; i++){
-    if(array[i].length > item_length){
-        var item_length = array[i].length;
-        longest = array[i];
-    }      
-} 
-
-console.log(longest);*/
-
-
-
-//make the rule I found out as a function so that I can use other arraies
-
-function longest_word(array){
-
-var item_length = 0;
-var longest;
-
-for(var i=0; i < array.length; i++){
-    if(array[i].length > item_length){
-         item_length = array[i].length;
-        longest = array[i];
-    }      
-} 
-
-console.log(longest);
-
+	for (var i = 1; i < array.length; i++) {   
+		if(longestWord.length < array[i].length){
+				  longestWord = array[i];
+			}
+	}
+console.log(longestWord); 
 }
 
-longest_word(["long phrase","longest phrase","longer phrase"]);
+longestWordFinder(["long phrase","longest phrase","longer phrase"]);
+longestWordFinder(["Happy birthday!","Nice to meet you!","Today is Sunday."]);
 
-// Test with different arraies
+/*Relese 0
+the longest word or phrase in the array. 
 
-longest_word(["a", "abc", "abcdefg", "abcdefghijklmn"])
-longest_word(["I feel so good that I finally made it after three hours!!", "Yes!! I did ","I can sleep well tonight."])
+set the first word as a longest word
+compare the word to other words one by one.
+if the other word is longer than the fist word assign the word as longest word.
+at the end print the longest word. 
 
+*/
 
-// before make a function make sure the basic logic will work
+/*
+Relese 1
+write a function that takes two objects and checks to see 
+if the objects share at least one key-value pair.
 
-/*var data1 = {name: "Steven", age: 54};
-var data2 = {name: "Tamir", age: 54};
+Take two objecs 
+find out the keys words so that I can access to the values
+check if the sames keys value is same or not
+if they are same store ture to an array.
+if they are not same store false in the same array
+after checked all the keys check that if the array includes ture.
+if it includes true print true otherise orint false
+*/
+function keyValueMatch(data1, data2) {
+	var keys = [];
+	  for (var key in data1) {
+	      keys.push(key);
+	  }
+	tfArray = [];
+		for (var i = 0; i < keys.length; i++) {
+			if (data1[keys[i]] === data2[keys[i]] ) {
+				tfArray.push(true);
+			}else{
+				tfArray.push(false);
+			}
+		}
 
-if (data1.name === data2.name || data1.age === data2.age){
-  console.log("true");
-}else{
-  console.log("false")
-}*/
-
-// in repl it I can tell it is true or false however with sublime and terminal, it will not return so I printed out.
-// make this as a function
-// how to pass the parameter.....
-
-function keyValueMatch (data1, data2){
-	if (data1.name === data2.name || data1.age === data2.age){
-	  console.log("true");
+	if (tfArray.includes(true)) {
+		console.log(true);
 	}else{
-  	console.log("false");
-  }
+		console.log(false);
+	}
 }
 
 keyValueMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+keyValueMatch({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3});  
+keyValueMatch({animal: "Cat", legs: 4}, {animal: "Dog", legs: 3});  
+keyValueMatch({name: "Steven", age: 54, gender: "male"}, {name: "Tamir", age: 54, gender: "female"});
+keyValueMatch({name: "Steven", age: 54, gender: "male"}, {name: "Tamir", age: 29, gender: "female"});
 
 
-// this should work fine but if I would like to use different keys I need to change the code.
-// I am not sure I need to improve this code or not...  I guess I should but I could not find the way..
+/*
+Relese 2
+Write a function that takes an integer for length,
+and builds and returns an array of strings of the given length
+make an array so that I can store the letters I generate
+How to make a rondom word => pick a rondomnumber one to 10
+console.log(Math.ceil(Math.random()*10))
+pick a romdon letter from alphabet array then store it an array romdom times.
+make the letters array in to a string and store the word to an array
 
 
+*/
 
-// make an array with any desired numbers if items.
-function wordGenerater(num){
-	// create an empty array then make the items with 1,2,3 and so on
-  var arr = [];
-  for(var i =0; i < num ; i++){
-    arr.push(i);
+function wordGenerater(num) {
+  var array = [];
+  for (var n = 0; n < num; n++) {
+
+	var letterArray = [];
+	var letters =
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  
+				for (var i = 0; i < Math.ceil(Math.random()*10); i++) {
+		  	letterArray.push(letters[Math.floor(Math.random()*letters.length)]);
+		  	word = letterArray.join("");
+		    }
+  array.push(word);
   }
-  // replace the each items with romdom letters with random length up to 10
-  for(var item =0; item < num ; item++){
-     var ran_word = "";
-     var possible = "abcdefghijklmnopqrstuvwxyz";
-
-    for( var i=0; i < Math.floor(Math.random() * 10) + 1 ; i++ )
-        ran_word += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    arr[item] = ran_word
-  }
-  console.log(arr)
+ console.log(array);
 }
 
-wordGenerater(5);
-
-
-
-var ram_arr = wordGenerater(3);
-console.log(ram_arr);
-
-// This did not work         longest_word(wordGenerater(3));
-// This did not work          longest_word(ram_arr);
-
-// Just print 10 times
-
-	for (var count = 0; count < 10; count++){
-		wordGenerater(3)
-	}
+wordGenerater(4);
