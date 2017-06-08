@@ -1,0 +1,64 @@
+Release 2
+
+1.  SELECT * FROM orders;
+
+	1|book|5|true|2
+	2|shoes|2|true|3
+	3|car|1|false|4
+	4|candy|10|true|1
+	5|dog|1|false|3
+
+
+2.  UPDATE orders SET shipped="true" WHERE item="car";
+
+Checked if it worked.
+SELECT * FROM orders;
+	1|book|5|true|2
+	2|shoes|2|true|3
+	3|car|1|true|4
+	4|candy|10|true|1
+	5|dog|1|false|3
+
+
+3.  SELECT * FROM orders, payments WHERE orders.payment_id = payments.id;
+
+	1|book|5|true|2|2|check
+	2|shoes|2|true|3|3|debit
+	3|car|1|true|4|4|credit
+	4|candy|10|true|1|1|cash
+	5|dog|1|false|3|3|debit
+
+
+4.  SELECT orders.item, orders.number, payments.type FROM orders JOIN payments ON orders.payment_id = payments.id;
+
+	book|5|check
+	shoes|2|debit
+	car|1|credit
+	candy|10|cash
+	dog|1|debit
+
+
+5.   DELETE FROM orders WHERE id=2;
+
+Checked it it worked.
+SELECT * FROM orders;
+	1|book|5|true|2
+	3|car|1|true|4
+	4|candy|10|true|1
+	5|dog|1|false|3
+
+
+
+	Relese 3
+
+SELECT *FROM orders INNER JOIN payments ON orders.payment_id = payments.id ;
+	1|book|5|true|2|2|check
+	3|car|1|true|4|4|credit
+	4|candy|10|true|1|1|cash
+	5|dog|1|false|3|3|debit
+
+SELECT * FROM payments LEFT OUTER JOIN orders ON payments.id = orders.payment_id;
+	1|cash|4|candy|10|true|1
+	2|check|1|book|5|true|2
+	3|debit|5|dog|1|false|3
+	4|credit|3|car|1|true|4
