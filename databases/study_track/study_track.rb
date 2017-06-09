@@ -4,18 +4,28 @@ require 'sqlite3'
 # create SQLite3 database
 db = SQLite3::Database.new("study_track.db")
 
-# create_tables_cmd = <<-SQL
-# 	CREATE TABLE IF NOT EXISTS personal(
-# 		id INTEGER PRIMARY KEY,
-# 		name VARCHAR(255),
-# 		start_day VARCHAR(255),
-# 		last_day VARCHAR(255),
-# 		FOREIGN KEY (personal_id) REFERENCES subjects(name)
-# 	)
-# 	SQL
+create_personal_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS personal(
+		id INTEGER PRIMARY KEY,
+ 	  name VARCHAR(255),
+		start_day VARCHAR(255),
+		last_day VARCHAR(255),
+		personal_id INT,
+		FOREIGN KEY (personal_id) REFERENCES subjects(s_id)
+  )
+SQL
 
-	# create a study_track table (if it's not there already)
-#db.execute(create_tables_cmd)
+create_subject_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS subjects(
+		s_id INT,
+		subject VARCHAR(255),
+		target_hours INT
+	)
+	SQL
+
+# create a study_track table (if it's not there already)
+db.execute(create_personal_table)
+db.execute(create_subject_table)
 
 
 # USER INTER FACE
