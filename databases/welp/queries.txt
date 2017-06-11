@@ -1,0 +1,22 @@
+SELECT * FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+1|5|Stellar service|7|7|7|Denzel|George|7|JoeBob's Sportz Barn
+2|4|Good service|6|6|6|Merryl|Streepman|6|Sushi World
+3|5|Stellar service|5|5|5|Holly|Berry|5|Pluming by Janet
+4|2|Don't go back|4|3|3|Angela|Jolie|4|Lotus Yoga
+5|3|Not bad service|3|3|3|Angela|Jolie|3|The Beagle Nightclub
+6|4|Good service|2|2|2|Mandy|Kaling|2|Amir's Towing
+7|5|Stellar service|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
+
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+Denzel|George|JoeBob's Sportz Barn|5|Stellar service
+Merryl|Streepman|Sushi World|4|Good service
+Holly|Berry|Pluming by Janet|5|Stellar service
+Angela|Jolie|Lotus Yoga|2|Don't go back
+Angela|Jolie|The Beagle Nightclub|3|Not bad service
+Mandy|Kaling|Amir's Towing|4|Good service
+Bradford|Pitt|Grundy Hollow Wedding Chapel|5|Stellar service
+
+
+SELECT * FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 3;
+5|3|Not bad service|3|3|3|Angela|Jolie|3|The Beagle Nightclub
