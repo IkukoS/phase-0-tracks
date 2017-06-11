@@ -41,8 +41,7 @@ end
 #store the student name and number in array
 
 student_name = ""
-student_id = 0
-student_names = []
+student_id = 1
 start_date = ""
 ending_date = ""
 target_subject = ""
@@ -52,6 +51,7 @@ until student_name == "done"
 	puts "Let's set your study target!"
 	puts "What is your name? If there are not more stuents enter 'done'."
 	student_name = gets.chomp
+  	
   	if student_name != "done"		
 			puts "Hi, #{student_name.capitalize}! Your student number is #{student_id}."
 			student_id += 1
@@ -60,6 +60,7 @@ until student_name == "done"
       puts "When do you want to end your log? (ex. 6/10)"
       ending_date = gets.chomp
       taking_personal_data(db, student_name, start_date, ending_date, student_id)
+    	
     	until target_subject == "none"
 	      puts "Which subject would you like to set a goal? If you do not want set a goal type 'none'."
 			  target_subject = gets.chomp
@@ -68,16 +69,34 @@ until student_name == "done"
 					  hours = gets.chomp.to_i
 					  taking_subject_data(db, student_id, target_subject, hours)
 					end
-					puts "OK #{student_name.capitalize}! Here is your goal!"
-					
-	      end
+      end
 
+		puts "OK #{student_name.capitalize}! Here is your goal!"
+    puts "+++++++++++++++++++++++"
+    puts "#{student_name.capitalize}'s GOAL"
+    puts "-----------------------"
+    puts "TERM : #{start_date}-#{ending_date}"
+    subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = #{student_id}") 
+			subjects_subject.each do |goal|
+			puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
+			end
+		puts "+++++++++++++++++++++++"
+		puts
+    puts "Now we can set another person's goal!"
+    target_subject = "reset"
 
-      
-		end
+	end
 	puts "-----------------------------------------------------------------"
 	
 end
 
+p personal_table = db.execute("SELECT * FROM personal")
+puts "========================================================================="
+p subject_table = db.execute("SELECT *FROM subjects")
+puts "========================================================================="
 
-
+puts "========================================================================="
+p subjects_subject
+subjects_subject.each do |goal|
+	puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
+end
