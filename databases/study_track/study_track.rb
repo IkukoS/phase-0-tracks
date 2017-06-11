@@ -47,6 +47,7 @@ start_date = ""
 ending_date = ""
 target_subject = ""
 hours = ""
+
 until student_name == "done"
 	puts "Let's set your study target!"
 	puts "What is your name? If there are not more stuents enter 'done'."
@@ -59,12 +60,19 @@ until student_name == "done"
       puts "When do you want to end your log? (ex. 6/10)"
       ending_date = gets.chomp
       taking_personal_data(db, student_name, start_date, ending_date, student_id)
-      puts "Which subject would you like to set a goal?"
-      target_subject = gets.chomp
-      puts "How many hours do you want to study #{target_subject} during #{start_date}-#{ending_date}?"
-      hours = gets.chomp.to_i
-      taking_subject_data(db, student_id, target_subject, hours)
-      puts "Would you like to set another goal for anothre subject?"
+    	until target_subject == "none"
+	      puts "Which subject would you like to set a goal? If you do not want set a goal type 'none'."
+			  target_subject = gets.chomp
+			  	if target_subject != "none"
+					  puts "How many hours do you want to study #{target_subject} during #{start_date}-#{ending_date}?"
+					  hours = gets.chomp.to_i
+					  taking_subject_data(db, student_id, target_subject, hours)
+					end
+					puts "OK #{student_name.capitalize}! Here is your goal!"
+					
+	      end
+
+
       
 		end
 	puts "-----------------------------------------------------------------"
