@@ -47,56 +47,74 @@ ending_date = ""
 target_subject = ""
 hours = ""
 
-until student_name == "done"
-	puts "Let's set your study target!"
-	puts "What is your name? If there are not more stuents enter 'done'."
-	student_name = gets.chomp
-  	
-  	if student_name != "done"		
-			puts "Hi, #{student_name.capitalize}! Your student number is #{student_id}."
-			student_id += 1
-      puts "When do you want to start your log? (ex. 6/10)"
-      start_date = gets.chomp
-      puts "When do you want to end your log? (ex. 6/10)"
-      ending_date = gets.chomp
-      taking_personal_data(db, student_name, start_date, ending_date, student_id)
-    	
-    	until target_subject == "none"
-	      puts "Which subject would you like to set a goal? If you do not want set a goal type 'none'."
-			  target_subject = gets.chomp
-			  	if target_subject != "none"
-					  puts "How many hours do you want to study #{target_subject} during #{start_date}-#{ending_date}?"
-					  hours = gets.chomp.to_i
-					  taking_subject_data(db, student_id, target_subject, hours)
-					end
-      end
+puts "Did you set your study goal? (y/n)"
+set_goal = gets.chomp
 
-		puts "OK #{student_name.capitalize}! Here is your goal!"
-    puts "+++++++++++++++++++++++"
-    puts "#{student_name.capitalize}'s GOAL"
-    puts "-----------------------"
-    puts "TERM : #{start_date}-#{ending_date}"
-    subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = #{student_id}") 
-			subjects_subject.each do |goal|
-			puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
-			end
-		puts "+++++++++++++++++++++++"
-		puts
-    puts "Now we can set another person's goal!"
-    target_subject = "reset"
+if set_goal == "n"
 
+	until student_name == "done"
+		puts "Let's set your study target!"
+		puts "What is your name? If there are not more stuents enter 'done'."
+		student_name = gets.chomp
+	  	
+	  	if student_name != "done"		
+				puts  Your student number is #{student_id}."
+				student_id += 1
+	      puts "When do you want to start your log? (ex. 6/10)"
+	      start_date = gets.chomp
+	      puts "When do you want to end your log? (ex. 6/10)"
+	      ending_date = gets.chomp
+	      taking_personal_data(db, student_name, start_date, ending_date, student_id)
+	    	
+	    	until target_subject == "none"
+		      puts "Which subject would you like to set a goal? If you do not want set a goal type 'none'."
+				  target_subject = gets.chomp
+				  	if target_subject != "none"
+						  puts "How many hours do you want to study #{target_subject} during #{start_date}-#{ending_date}?"
+						  hours = gets.chomp.to_i
+						  taking_subject_data(db, student_id, target_subject, hours)
+						end
+	      end
+
+			puts "OK #{student_name.capitalize}! Here is your goal!"
+	    puts "+++++++++++++++++++++++"
+	    puts "#{student_name.capitalize}'s GOAL"
+	    puts "-----------------------"
+	    puts "TERM : #{start_date}-#{ending_date}"
+	    subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = #{student_id}") 
+				subjects_subject.each do |goal|
+				puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
+				end
+			puts "+++++++++++++++++++++++"
+			puts
+	    puts "Now we can set another person's goal!"
+	    target_subject = "reset"
+		end
+		puts "-----------------------------------------------------------------"
 	end
-	puts "-----------------------------------------------------------------"
+
+elsif set_goal == "y"
+	puts "Please enter your stuents number."
+	student_id = gets.chomp
+	student_name = db.execute("SELECT * FROM personal WHERE id = #{student_id}")
+	personal_ending_date = db.execute("SELECT * FROM personal WHERE id = #{student_id}") 
+	puts "Hi, #{student_name[0][1].capitalize}! This is the work you need to get done by #{personal_ending_date[0][3]}."
+
+
+else
+	puts "Plese enter 'y' or 'n'."
+end
 	
-end
+# personal_table = db.execute("SELECT * FROM personal")
+# puts "========================================================================="
 
-p personal_table = db.execute("SELECT * FROM personal")
-puts "========================================================================="
-p subject_table = db.execute("SELECT *FROM subjects")
-puts "========================================================================="
 
-puts "========================================================================="
-p subjects_subject
-subjects_subject.each do |goal|
-	puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
-end
+# p subject_table = db.execute("SELECT *FROM subjects")
+# puts "========================================================================="
+
+# puts "========================================================================="
+# p subjects_subject
+# subjects_subject.each do |goal|
+# 	puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
+# end
+
