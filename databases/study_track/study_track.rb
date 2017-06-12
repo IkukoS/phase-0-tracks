@@ -118,13 +118,25 @@ until set_goal == "y" || set_goal == "n"
 				if studied == "y"
 					puts "Enter the subject your studied."
 					studied_subject = gets.chomp
-					p studied_subject.downcase
+					studied_subject.downcase
 					puts "Enter the hours you have been studied after the last log."
 					studied_hours = gets.chomp
-					p studied_hours
-					p original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = (#{student_id} + 1 ) AND subject = '#{studied_subject.downcase}' ")
-					p new_hours = original_hours[0][0].to_i - studied_hours.to_i
-					# update_hours = db.execute("UPDATE subjects SET target_hours = #{update_hours} WHERE subject = #{studied_subject.downcase} AND s_id = (#{student_id} + 1 )") 
+					original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = (#{student_id} + 1 ) AND subject = '#{studied_subject.downcase}' ")
+					new_hours = original_hours[0][0].to_i - studied_hours.to_i
+					update_hours = db.execute("UPDATE subjects SET target_hours = #{new_hours} WHERE subject = '#{studied_subject.downcase}' AND s_id = (#{student_id} + 1 )") 
+				  personal_info = db.execute("SELECT * FROM personal WHERE id = #{student_id}")
+
+					puts "Here is your latest log!"
+				  puts "+++++++++++++++++++++++"
+				  puts "#{personal_info[0][1].capitalize}'s hours to GOAL"
+				  puts "-----------------------"
+				  puts "TERM : #{personal_info[0][2]}-#{personal_info[0][3]}"
+				  subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = (#{student_id} + 1 )") 
+						subjects_subject.each do |goal|
+						puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
+						end
+					puts "+++++++++++++++++++++++"
+					
 				elsif studied == "n"
 					puts "Hey, you need to work harder to achieve your goal!!"
 				else
