@@ -61,7 +61,7 @@ until set_goal == "y" || set_goal == "n"
 			student_name = gets.chomp
 		  	
 		  	if student_name != "done"		
-					puts "Hi #{student_name}! Your student number is #{student_id}."
+					puts "Hi #{student_name.capitalize}! Your student number is '#{student_id}'."
 					student_id += 1
 		      puts "When do you want to start your log? (ex. 6/10)"
 		      start_date = gets.chomp
@@ -112,26 +112,34 @@ until set_goal == "y" || set_goal == "n"
 		puts "+++++++++++++++++++++++"
 		
 			studied = ""
+			#subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = (#{student_id} + 1 )") 
 			until studied == "y" || studied == "n"
 				puts "Did you study after you put last log? (y/n)? "
 				studied = gets.chomp
 				if studied == "y"
 					puts "Enter the subject your studied."
 					studied_subject = gets.chomp
-					studied_subject.downcase
+					studied_subject = studied_subject.downcase
+
 					puts "Enter the hours you have been studied after the last log."
 					studied_hours = gets.chomp
 					original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = (#{student_id} + 1 ) AND subject = '#{studied_subject.downcase}' ")
 					new_hours = original_hours[0][0].to_i - studied_hours.to_i
+						if new_hours < 0 || new_hours == 0
+				  		delete_subject = db.execute("DELETE FROM subjects WHERE subject = '#{studied_subject.downcase}' AND s_id = (#{student_id} + 1 )") 
+							puts "Great job #{personal_info[0][1].capitalize}! You achieved your goal of #{studied_subject}."
+						else
+							puts "Good job #{personal_info[0][1].capitalize}!"
+				  	end
 					update_hours = db.execute("UPDATE subjects SET target_hours = #{new_hours} WHERE subject = '#{studied_subject.downcase}' AND s_id = (#{student_id} + 1 )") 
 				  personal_info = db.execute("SELECT * FROM personal WHERE id = #{student_id}")
-
-					puts "Here is your latest log!"
+				  subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = (#{student_id} + 1 )") 
+				  	
+          puts "Here is your latest log!"
 				  puts "+++++++++++++++++++++++"
 				  puts "#{personal_info[0][1].capitalize}'s hours to GOAL"
 				  puts "-----------------------"
 				  puts "TERM : #{personal_info[0][2]}-#{personal_info[0][3]}"
-				  subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = (#{student_id} + 1 )") 
 						subjects_subject.each do |goal|
 						puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
 						end
@@ -165,3 +173,6 @@ end
 #update_hours = db.execute("UPDATE subjects SET target_hours = 6 WHERE subject = 'history' AND s_id = 3") 
 # p subject_table = db.execute("SELECT *FROM subjects")
 #p original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = 2 AND subject = 'japanese' ")
+
+
+						
