@@ -112,7 +112,6 @@ until set_goal == "y" || set_goal == "n"
 		puts "+++++++++++++++++++++++"
 		
 			studied = ""
-			#subjects_subject = db.execute("SELECT * FROM subjects WHERE s_id = (#{student_id} + 1 )") 
 			until studied == "y" || studied == "n"
 				puts "Did you study after you put last log? (y/n)? "
 				studied = gets.chomp
@@ -157,22 +156,3 @@ until set_goal == "y" || set_goal == "n"
 	end
 end
 
-#personal_table = db.execute("SELECT * FROM personal")
-# puts "========================================================================="
-
-
-#p subject_table = db.execute("SELECT *FROM subjects")
-# puts "========================================================================="
-
-# puts "========================================================================="
-# p subjects_subject
-# subjects_subject.each do |goal|
-# 	puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
-# end
-
-#update_hours = db.execute("UPDATE subjects SET target_hours = 6 WHERE subject = 'history' AND s_id = 3") 
-# p subject_table = db.execute("SELECT *FROM subjects")
-#p original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = 2 AND subject = 'japanese' ")
-
-
-						
