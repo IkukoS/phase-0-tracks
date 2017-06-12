@@ -110,6 +110,19 @@ until set_goal == "y" || set_goal == "n"
 			puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
 			end
 		puts "+++++++++++++++++++++++"
+		
+			studied = ""
+			until studied == "y" || studied == "n"
+				puts "Did you study after you put last log? (y/n)? "
+				studied = gets.chomp
+				if studied == "y"
+					puts "Enter the subject your sttudied."
+				elsif studied == "n"
+					puts "Hey, you need to work harder to achieve your goal!!"
+				else
+					puts "Plese enter 'y' or 'n'."	
+				end
+			end
 
 	else
 		puts "Plese enter 'y' or 'n'."
