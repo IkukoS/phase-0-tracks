@@ -116,7 +116,15 @@ until set_goal == "y" || set_goal == "n"
 				puts "Did you study after you put last log? (y/n)? "
 				studied = gets.chomp
 				if studied == "y"
-					puts "Enter the subject your sttudied."
+					puts "Enter the subject your studied."
+					studied_subject = gets.chomp
+					p studied_subject.downcase
+					puts "Enter the hours you have been studied after the last log."
+					studied_hours = gets.chomp
+					p studied_hours
+					p original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = (#{student_id} + 1 ) AND subject = '#{studied_subject.downcase}' ")
+					p new_hours = original_hours[0][0].to_i - studied_hours.to_i
+					# update_hours = db.execute("UPDATE subjects SET target_hours = #{update_hours} WHERE subject = #{studied_subject.downcase} AND s_id = (#{student_id} + 1 )") 
 				elsif studied == "n"
 					puts "Hey, you need to work harder to achieve your goal!!"
 				else
@@ -129,11 +137,11 @@ until set_goal == "y" || set_goal == "n"
 	end
 end
 
-p personal_table = db.execute("SELECT * FROM personal")
+#personal_table = db.execute("SELECT * FROM personal")
 # puts "========================================================================="
 
 
-p subject_table = db.execute("SELECT *FROM subjects")
+#p subject_table = db.execute("SELECT *FROM subjects")
 # puts "========================================================================="
 
 # puts "========================================================================="
@@ -142,3 +150,6 @@ p subject_table = db.execute("SELECT *FROM subjects")
 # 	puts "#{goal[1].upcase} : #{goal[2]} hour(s)"
 # end
 
+#update_hours = db.execute("UPDATE subjects SET target_hours = 6 WHERE subject = 'history' AND s_id = 3") 
+# p subject_table = db.execute("SELECT *FROM subjects")
+#p original_hours = db.execute("SELECT target_hours FROM subjects WHERE s_id = 2 AND subject = 'japanese' ")
