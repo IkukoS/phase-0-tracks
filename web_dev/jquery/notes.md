@@ -7,3 +7,6 @@ Release 0: Make a Plan
 5. Think about how can I use jquery. (15min)
 * Extra 15min I can take break if I am tired.
 
+Release 1: Study Up
+To know what is the jquery and basic syntax then see the sample codes with domo was good strategy to start.
+
