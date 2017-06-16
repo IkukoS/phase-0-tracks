@@ -6,11 +6,18 @@
 <body>
   <h1>Student Management System</h1>
   <p>Welcome to the student management system.</p>
-  <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>If you already have your student ID, please enter your stuednt number</p>
+  <form action="/students" method="POST">
+    <input type="text" name="stuent_id" placeholder="Student ID">
+    <button type="submit">Submit</button>
+  </form>
+
+  <p>If you would like to know the students' cpampuses, click <a href="students/info">here</a>.</p>
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
     <% end %>
   </ul>
+      
 </body>
 </html>
